@@ -1,0 +1,20 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model List<Course>
+<div class="sidebar-widget popular-posts">
+    <div class="sidebar-title">
+        <h4>Son Postlar</h4>
+    </div>
+    @foreach (var x in Model.Take(3).OrderByDescending(x => x.CourseId))
+    {
+        <article class="post">
+            <figure class="post-thumb"><img src="@x.Picture" alt="" class="radius-image"></figure>
+            <div class="text">
+                <a href="blog-single.html">
+                    @x.Title
+                </a>
+            </div>
+            <div class="post-info">@x.Price</div>
+        </article>
+    }
+</div>
+

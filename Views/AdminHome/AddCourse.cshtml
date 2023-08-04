@@ -1,0 +1,41 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model Course
+@{
+	ViewData["Title"] = "AddCourse";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div id="page-wrapper">
+	<div class="main-page">
+		<h2 class="title1">Yeni</h2>
+		<div class="blank-page widget-shadow scroll" id="style-2 div1">
+		<form method="post">
+			<br />
+			@Html.Label("Kategoriyalar")
+				@Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.cat, new {@class="form-control"})
+					<br />
+				<br />
+				@Html.Label("Adı")
+				<input type="text" asp-for="Title" class="form-control" />
+				<br />
+				<br />
+				@Html.Label("Qiyməti")
+				<input type="text" asp-for="Price" class="form-control" />
+				<br />
+				<br />
+				@Html.Label("Şəkil ")
+				<input type="text" asp-for="Picture" class="form-control" />
+				<br />
+				@Html.Label("Dərs sayı")
+				<input type="text" asp-for="Lesson" class="form-control" />
+				<br />
+				@Html.Label("Haqqında")
+				<input type="text" asp-for="Description" class="form-control" />
+				<br />
+				<input type="submit" class="btn btn-success btn-flat btn-pri"  value="Təsdiqlə"/>
+
+		</form>
+		</div>
+	</div>
+</div>

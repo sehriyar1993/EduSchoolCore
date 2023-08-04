@@ -1,0 +1,30 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model List<NewsLetter>
+<div class="col-md-6 span_12">
+	<div class="activity_box activity_box1">
+		<h3>Mail Blüteni</h3>
+		<div class="scrollbar" id="style-3">
+			@foreach(var x in Model)
+			{
+				<div class="activity-row activity-row1">
+					<div class="col-xs-5 activity-img1">
+						<div class="activity-desc-sub">
+							<h5>@x.Mail</h5>
+						</div>
+					</div>
+					<div class="col-xs-4 activity-desc1"></div>
+					<div class="clearfix"> </div>
+				</div>
+
+			}
+			
+		</div>
+		<form action="/AdminMail/Contact/" method="post">
+			<input type="text" name="RecieverMail" placeholder="Email Adresi" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Adresi';}" required="">
+			<input type="text" name="MailSubject" placeholder="Başlıq" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Başlıq';}" required="">
+			<input type="text" name="MailBody" placeholder="Mesajınız" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mesajınız';}" required="">
+			<input type="submit" value="Göndər" />
+		</form>
+	</div>
+</div>
+

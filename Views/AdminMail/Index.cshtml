@@ -1,0 +1,35 @@
+﻿@model MailSendViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="page-wrapper">
+	<div class="main-page compose">
+		<h2 class="title1">Mail Blüteninə Əlavə Olunanlar </h2>
+		@await Component.InvokeAsync("NewsletterAdmin")
+	
+		<div class="col-md-8 compose-right widget-shadow">
+			<div class="panel-default">
+				<div class="panel-heading">
+					Mail  Göndər
+				</div>
+				<div class="panel-body">
+					<div class="alert alert-info">
+						Məlumatları Doldurun
+					</div>
+					<form method="post" class="com-mail">
+						@Html.DropDownListFor(x=>x.RecieverMail,(List<SelectListItem>)ViewBag.cat, new {@class="form-control1 control3"})
+						<input type="text" class="form-control1 control3" placeholder="Başlıq :" asp-for="MailSubject">
+						<textarea rows="6" class="form-control1 control2" placeholder="Mesajınız :" asp-for="MailBody"></textarea>
+					
+						<input type="submit" value="Mail Göndər">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+
+

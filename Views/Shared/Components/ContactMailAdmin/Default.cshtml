@@ -1,0 +1,33 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model List<Contact>
+
+<div class="col-md-4 compose-left">
+	<div class="chat-grid widget-shadow">
+		<ul>
+			<li class="head">Əlaqələr </li>
+			@foreach (var x in Model)
+			{
+				<li>
+					<a href="#">
+						<div class="chat-left">
+							<img class="img-circle" src="images/i1.png" alt="">
+							<label class="small-badge"></label>
+						</div>
+						<div class="chat-right">
+							<p>@x.Email</p>
+							<h6>@x.Body </h6>
+						</div>
+						<div class="clearfix"> </div>
+					</a>
+				</li>
+			}
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+
+

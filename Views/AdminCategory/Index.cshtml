@@ -1,0 +1,58 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int count = 1;
+}
+
+
+
+
+<div id="page-wrapper">
+	<div class="main-page">
+		<h2 class="title1">Kateqoriyalarımız</h2>
+		<div class="blank-page widget-shadow scroll" id="style-2 div1">
+			<table class="table table-bordered">
+				<tr>
+					<td>#</td>
+					<td>Adı</td>
+					<td>Status</td>
+					<td>Status Dəyiş</td>
+					<td>Sil</td>
+					<td>Yenilə</td>
+					<td>Ətraflı</td>
+				</tr>
+				@foreach (var x in Model)
+				{
+					count++;
+					<tr>
+						<td>@count</td>
+						<td>@x.CategoryName</td>
+						<td>@x.Status</td>
+						@if(x.Status == true)
+						{
+							<td><a href="/AdminCategory/ChangeToFolse/@x.CategoryId" class="btn btn-info btn-flat btn-pri">Passiv Et</a></td>
+
+						}
+						else
+						{
+							<td><a href="/AdminCategory/ChangeToTrue/@x.CategoryId" class="btn btn-success btn-flat btn-pri">Aktiv Et</a></td>
+
+						}
+						<td><a href="/AdminCategory/DeleteCateqory/@x.CategoryId" class="btn btn-danger btn-flat btn-pri">Sil</a></td>
+						<td><a href="/AdminCategory/UpdateCateqory/@x.CategoryId" class="btn btn-success btn-flat btn-pri">Yenilə</a></td>
+						<td><a href="#" class="btn btn-primary btn-flat btn-pri">Ətraflı</a></td>
+
+					</tr>
+				}
+			</table>
+		</div>
+	</div>
+	<a href="/AdminCategory/AddCateqory" class="btn btn-info btn-flat btn-pri">Yeni</a>
+	
+</div>
+
+
+
+

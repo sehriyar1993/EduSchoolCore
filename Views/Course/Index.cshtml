@@ -1,0 +1,88 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core.Common;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Course>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- inner banner -->
+<section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-4 pb-sm-4">
+            <h4 class="inner-text-title pt-5">Kurslar</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="/Home/Index/">Ana Səhifə</a></li>
+                <li class="active"><i class="fas fa-angle-right"></i>Kurslarımız</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //inner banner -->
+<!-- courses section -->
+<div class="w3l-grids-block-5 py-5">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <p class="text-uppercase">Kurslarımız</p>
+            <h3 class="title-style">Sizə təkliflərimizi dəyərləndirin</h3>
+        </div>
+        <div class="row justify-content-center">
+            @foreach (var x in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="coursecard-single">
+                        <div class="grids5-info position-relative">
+                            <img src="@x.Picture" alt="" class="img-fluid" />
+                            <div class="meta-list">
+                                <a href="/Course/Single/@x.CourseId">@x.Category.CategoryName</a>
+                            </div>
+                        </div>
+                        <div class="content-main-top">
+                            <div class="content-top mb-4 mt-3">
+                                <ul class="list-unstyled d-flex align-items-center justify-content-between">
+                                    <li> <i class="fas fa-book-open"></i>@x.Lesson</li>
+                                    @*<li> <i class="fas fa-star"></i> 4.5</li>*@
+                                </ul>
+                            </div>
+                            <h4><a href="/Course/Single/@x.CourseId">@x.Title</a></h4>
+                            @if (@x.Description != null)
+                            {
+                                <p>@x.Description.Substring(0,@x.Description.Substring(0,50).LastIndexOf(" "))... </p>
+
+                            }
+                            else
+                            {
+                                <p>Məlumat Yoxdur</p>
+                            }
+
+                            <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
+                                <h6>@x.Price</h6>
+                                <a class="btn btn-style-primary" href="/Course/Single/@x.CourseId">
+                                    Ətraflı<i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+           
+        </div>
+    </div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
+    new PagedListRenderOptions
+    {
+    LinkToFirstPageFormat="<<İlk",
+    LinkToLastPageFormat="Son>>",
+    LinkToNextPageFormat="sonraki>",
+    LinkToPreviousPageFormat="<əvvəli",
+    ContainerDivClasses=new[] {"navigation"},
+    LiElementClasses= new[] {"page-item"},
+    PageClasses=new[] {"page-link"},
+    ActiveLiElementClass="active"
+    })
+</div>
+<!-- //courses section -->
+

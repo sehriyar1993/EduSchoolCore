@@ -1,0 +1,66 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core.Common;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Blog>
+@{
+	ViewData["Title"] = "Index1";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int count = 1;
+}
+
+
+
+<div id="page-wrapper">
+	<div class="main-page">
+		<h2 class="title1">Paylaşımlarımız</h2>
+		<div class="blank-page widget-shadow scroll" id="style-2 div1">
+			<table class="table table-bordered">
+				<tr>
+					<td>#</td>
+					<td>Şəkli</td>
+					<td>Adı</td>
+					<td>Yüklənmə Tarixi</td>
+					<td>Yükləyən İstifadəçi</td>
+					<td>Haqqında</td>
+					<td>Sil</td>
+					<td>Yenilə</td>
+
+				</tr>
+				@foreach (var x in Model)
+				{
+					count++;
+					<tr>
+						<td>@count</td>
+						<td><img src="@x.Picture" style="width:64px;height:64px" /></td>
+						<td>@x.Title</td>
+						<td>@(((DateTime)x.Date).ToString("dd-MMM-yyyy"))</td>
+						<td>@x.AppUser.Name  @x.AppUser.Surname </td>
+						<td>@x.Description</td>
+						<td><a href="/AdminHome/DeleteBlog/@x.BlogId/" class="btn btn-danger btn-flat btn-pri">Sil</a></td>
+						<td><a href="/AdminHome/UpdateBlog/@x.BlogId/" class="btn btn-success btn-flat btn-pri">Yenilə</a></td>
+
+					</tr>
+				}
+			</table>
+		</div>
+	</div>
+	<a href="/AdminHome/AddBlog/" class="btn btn-info btn-flat btn-pri">Yeni</a>
+	@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index1", new { page }),
+	new PagedListRenderOptions
+	{
+	LinkToFirstPageFormat="<<İlk",
+	LinkToLastPageFormat="Son>>",
+	LinkToNextPageFormat="sonraki>",
+	LinkToPreviousPageFormat="<əvvəli",
+	ContainerDivClasses=new[] {"navigation"},
+	LiElementClasses= new[] {"page-item"},
+	PageClasses=new[] {"page-link"},
+	ActiveLiElementClass="active"
+	})
+
+</div>
+
+
+
+

@@ -1,0 +1,78 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core.Common;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-4 pb-sm-4">
+            <h4 class="inner-text-title pt-5">Paylaşımlarımız</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="/Home/Index/">Ana Səhifə</a></li>
+                <li class="active"><i class="fas fa-angle-right"></i>Paylaşımlar</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //inner banner -->
+<!-- courses section -->
+<div class="w3l-blog-block-5 py-5" id="blog">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <p class="text-uppercase">Paylaşımlarımız</p>
+            <h3 class="title-style">Son <span>Paylaşımlarımız</span> Postlar</h3>
+        </div>
+        <div class="row justify-content-center">
+            @foreach (var x in Model.OrderByDescending(x => x.BlogId))
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card-single">
+                        <div class="grids5-info">
+                            <a href="/Blog/Single/@x.BlogId"><img src="@x.Picture" alt="" /></a>
+                            <div class="blog-info">
+                                <h4><a href="/Blog/Single/@x.BlogId">@x.Title</a></h4>
+                                @if (@x.Description != null)
+                                {
+                                    <p>@x.Description.Substring(0,@x.Description.Substring(0,50).LastIndexOf(" "))... </p>
+
+                                }
+                                else
+                                {
+                                    <p>Məlumat Yoxdur</p>
+                                }
+                                <div class="d-flex align-items-center justify-content-between mt-4">
+                                    <a class="d-flex align-items-center" href="#blog" title="23k followers">
+                                         <img class="img-fluid" src="@x.AppUser.Image" alt="admin"
+                                    style="max-width:40px"> <span class="small ms-2">@x.AppUser.Name</span>
+                                    </a>
+                                    <p class="date-text"><i class="far fa-calendar-alt me-1"></i>@(((DateTime)x.Date).ToString("dd-MMM-yyyy"))</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+           
+        </div>
+    </div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
+    new PagedListRenderOptions
+    {
+    LinkToFirstPageFormat="<<İlk",
+    LinkToLastPageFormat="Son>>",
+    LinkToNextPageFormat="sonraki>",
+    LinkToPreviousPageFormat="<əvvəli",
+    ContainerDivClasses=new[] {"navigation"},
+    LiElementClasses= new[] {"page-item"},
+    PageClasses=new[] {"page-link"},
+    ActiveLiElementClass="active"
+    })
+</div>
+
+

@@ -1,0 +1,16 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model List<Category>
+
+
+<div class="sidebar-widget sidebar-blog-category">
+    <div class="sidebar-title">
+        <h4>Kateqoriyalarımız</h4>
+    </div>
+    <ul class="blog-cat">
+        @foreach(var x in Model)
+        {
+            <li><a href="/Course/ListForCategory/@x.CategoryId">@x.CategoryName </a></li>
+        }
+       
+    </ul>
+</div>

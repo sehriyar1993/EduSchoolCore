@@ -1,0 +1,28 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+<div class="leave-comment-form" id="comment">
+    @*<h3 class="aside-title">Leave a reply</h3>*@
+    
+
+        <form method="post" asp-action="AddComment" asp-controller="Comment">
+            <input type="hidden" name="AppUserId" value="@ViewBag.UserID">
+            <input type="hidden" name="CourseId" value="@ViewBag.CourseID">
+            <input type="hidden" name="BlogId" value="@ViewBag.BlogId">
+            <div class="form-group">
+                <textarea name="Body" class="form-control" placeholder="Rəyiniz" required=""></textarea>
+        </div>
+        
+        <div class="submit text-end">
+            <button class="btn btn-style btn-style-3 mt-2">
+                Rəy Bildir
+            </button>
+        </div>
+    </form>
+</div>
+}
+else
+{
+    <h2>Rəy bildirmək üçün qeydiyyat mütləqdir</h2>
+}
+
+

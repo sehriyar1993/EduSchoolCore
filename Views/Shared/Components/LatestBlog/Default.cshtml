@@ -1,0 +1,86 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model List<Blog>
+<div class="w3l-blog-block-5 py-5" id="blog">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <p class="text-uppercase">Paylaşımlarımız</p>
+            <h3 class="title-style">Son <span>Paylaşımlarımız</span> Postlar</h3>
+        </div>
+        <div class="row justify-content-center">
+            @foreach (var x in Model.OrderByDescending(x => x.BlogId).Take(3))
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card-single">
+                        <div class="grids5-info">
+                            <a href="/Blog/Single/@x.BlogId"><img src="@x.Picture" alt="" /></a>
+                            <div class="blog-info">
+                                <h4><a href="/Blog/Single/@x.BlogId">@x.Title</a></h4>
+                                @if (@x.Description != null)
+                                {
+                                    <p>@x.Description.Substring(0,@x.Description.Substring(0,50).LastIndexOf(" "))... </p>
+
+                                }
+                                else
+                                {
+                                    <p>Məlumat Yoxdur</p>
+                                }
+                                <div class="d-flex align-items-center justify-content-between mt-4">
+                                    <a class="d-flex align-items-center" href="#blog" title="23k followers">
+                                        <img class="img-fluid" src="@x.AppUser.Image" alt="admin"
+                                             style="max-width:40px"> <span class="small ms-2">@x.AppUser.Name</span>
+                                    </a>
+                                    <p class="date-text"><i class="far fa-calendar-alt me-1"></i>@(((DateTime)x.Date).ToString("dd-MMM-yyyy"))</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        
+            @*<div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                <div class="blog-card-single">
+                    <div class="grids5-info">
+                        <a href="#blog"><img src="~/Edu-School-Starter/assets/images/blog1.jpg" alt="" /></a>
+                        <div class="blog-info">
+                            <h4><a href="#blog">Games Programs...</a></h4>
+                            <p>
+                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sunt inc
+                                officia deserunt.
+                            </p>
+                            <div class="d-flex align-items-center justify-content-between mt-4">
+                                <a class="d-flex align-items-center" href="#blog" title="23k followers">
+                                    <img class="img-fluid" src="~/Edu-School-Starter/assets/images/testi1.jpg" alt="admin"
+                                         style="max-width:40px"> <span class="small ms-2">Molive Joe</span>
+                                </a>
+                                <p class="date-text"><i class="far fa-calendar-alt me-1"></i>Oct 10, 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
+                <div class="blog-card-single">
+                    <div class="grids5-info">
+                        <a href="#blog"><img src="~/Edu-School-Starter/assets/images/blog3.jpg" alt="" /></a>
+                        <div class="blog-info">
+                            <h4><a href="#blog">Articles Programs...</a></h4>
+                            <p>
+                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sunt inc
+                                officia deserunt.
+                            </p>
+                            <div class="d-flex align-items-center justify-content-between mt-4">
+                                <a class="d-flex align-items-center" href="#blog" title="23k followers">
+                                    <img class="img-fluid" src="assets/images/testi3.jpg" alt="admin"
+                                         style="max-width:40px"> <span class="small ms-2">
+                                        Turne Leo
+                                    </span>
+                                </a>
+                                <p class="date-text"><i class="far fa-calendar-alt me-1"></i>Oct 12, 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</div>

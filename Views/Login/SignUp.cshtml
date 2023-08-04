@@ -1,0 +1,79 @@
+﻿@model UserRegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Edu School Register</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		  content="Merged Forms Page Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<!-- //Meta tag Keywords -->
+	<link rel="stylesheet" href="~/web/css/register.css" type="text/css" media="all" /><!-- Style-CSS -->
+</head>
+<body>
+	<!-- /form-26-section -->
+	<section class="form-26-1">
+		<div class="form-26-mian">
+			<div class="layer">
+				<div class="wrapper">
+					<div class="form-inner-cont">
+						<div class="forms-26-info">
+							<h2>Qeydiyyat</h2>
+							<p>Sürətli qeydiyyat üçün aşağıdakı məlumatları doldurun</p>
+						</div>
+						<div class="form-right-inf">
+							<form action="#" method="post" class="signin-form">
+								<div class="forms-gds">
+									<div class="form-input">
+										<input type="text" asp-for="Name" placeholder="Adınız" required />
+									</div>
+									<div class="form-input">
+										<input type="text" asp-for="Surname" placeholder="Soyadınız" required />
+									</div>
+									<div class="form-input">
+										<input type="text" asp-for="Username" placeholder="İstifadəçi Adınız" required />
+									</div>
+									<div class="form-input">
+										<input type="text" asp-for="About" placeholder="Haqqınızda" required />
+									</div>
+									<div class="form-input">
+										<input type="text" asp-for="Image" placeholder="Şəkil linki" required />
+									</div>
+									<div class="form-input">
+										<input type="text" asp-for="PhoneNumber" placeholder="Telefon Nömrəsi" required />
+									</div>
+									<div class="form-input">
+										<input type="email" asp-for="Mail" placeholder="Email Adresiniz" required />
+									</div>
+									<div class="form-input">
+										<input type="password" asp-for="Password" placeholder="Şifrəniz" required />
+									</div>
+									<div class="form-input">
+										<input type="password" asp-for="ConfirmPassword" placeholder="Şifrənizi Yeniləyin" required />
+									</div>
+									<div class="form-input"><button class="btn">Qeytdiyyatı Tamamla</button></div>
+								</div>
+								<h6 class="already">Bir Hesabınız Var? <a href="/Login/SignIn/"><span>Giriş Edin<span></span></span></a></h6>
+							</form>
+
+						</div>
+						<div class="copyright text-center">
+							<p>
+								© @DateTime.Now.Year Edu School. Bütün Hüquqlarınız Qorunur. Design
+								by <a href="https://shahriyarhajiyev.com/" target="_blank">Şəhriyar Hacıyev</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- //form-26-section -->
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿
+<div class="profile_details">
+	<ul>
+		<li class="dropdown profile_details_drop">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+				<div class="profile_img">
+					<span class="prfil-img"><img src="@ViewBag.userimage" alt="" style="width:40px; height:40px;"> </span>
+					<div class="user-name">
+						<p>@ViewBag.username @ViewBag.usersurname</p>
+						<span>@ViewBag.usermail</span>
+					</div>
+					<i class="fa fa-angle-down lnr"></i>
+					<i class="fa fa-angle-up lnr"></i>
+					<div class="clearfix"></div>
+				</div>
+			</a>
+			<ul class="dropdown-menu drp-mnu">
+				<li> <a href="/Profile/MyAccount"><i class="fa fa-cog"></i> Ayarlar</a> </li>
+				<li> <a href="/Profile/MyAccount"><i class="fa fa-user"></i> Profilim</a> </li>
+				<li> <a href="#"><i class="/Profile/Singout/"></i> Çıxış</a> </li>
+			</ul>
+		</li>
+	</ul>
+</div>

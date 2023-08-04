@@ -1,0 +1,97 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\Components\AdminImage\Default.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Controllers\single.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\AdminCategory\AddCateqory.cshtml" />
+    <None Include="Views\AdminCategory\Index.cshtml" />
+    <None Include="Views\AdminCategory\UpdateCateqory.cshtml" />
+    <None Include="Views\AdminDashboard\Index.cshtml" />
+    <None Include="Views\AdminHome\Index.cshtml" />
+    <None Include="Views\AdminMail\Contact.cshtml" />
+    <None Include="Views\AdminMail\Index.cshtml" />
+    <None Include="Views\AdminRole\AssingRole.cshtml" />
+    <None Include="Views\AdminRole\Create.cshtml" />
+    <None Include="Views\AdminRole\Index.cshtml" />
+    <None Include="Views\AdminRole\UpdateRole.cshtml" />
+    <None Include="Views\AdminRole\Users.cshtml" />
+    <None Include="Views\Shared\Components\AdminContactNavbar\Default.cshtml" />
+    <None Include="Views\Shared\Components\AdminImage\Default.cshtml" />
+    <None Include="Views\Shared\Components\AdminNameNavbar\Default.cshtml" />
+    <None Include="Views\Shared\Components\AdminNewsLetterNavbar\Default.cshtml" />
+    <None Include="Views\Shared\Components\ContactMailAdmin\Default.cshtml" />
+    <None Include="Views\Shared\Components\DashboardContactList\Default.cshtml" />
+    <None Include="Views\Shared\Components\DashboardNewsletterList\Default.cshtml" />
+    <None Include="Views\Shared\Components\NewsletterAdmin\Default.cshtml" />
+    <None Include="wwwroot\webadmin\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\webadmin\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\webadmin\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\webadmin\js\amcharts.js" />
+    <None Include="wwwroot\webadmin\js\bootstrap.js" />
+    <None Include="wwwroot\webadmin\js\Chart.bundle.js" />
+    <None Include="wwwroot\webadmin\js\Chart.js" />
+    <None Include="wwwroot\webadmin\js\Chart.min.js" />
+    <None Include="wwwroot\webadmin\js\chartinator.js" />
+    <None Include="wwwroot\webadmin\js\classie.js" />
+    <None Include="wwwroot\webadmin\js\custom.js" />
+    <None Include="wwwroot\webadmin\js\export.min.js" />
+    <None Include="wwwroot\webadmin\js\images\dragIconRoundBig.svg" />
+    <None Include="wwwroot\webadmin\js\images\lens.svg" />
+    <None Include="wwwroot\webadmin\js\index.js" />
+    <None Include="wwwroot\webadmin\js\index1.js" />
+    <None Include="wwwroot\webadmin\js\index2.js" />
+    <None Include="wwwroot\webadmin\js\jquery-1.11.1.min.js" />
+    <None Include="wwwroot\webadmin\js\jquery.flot.js" />
+    <None Include="wwwroot\webadmin\js\jquery.jqcandlestick.min.js" />
+    <None Include="wwwroot\webadmin\js\jquery.nicescroll.js" />
+    <None Include="wwwroot\webadmin\js\light.js" />
+    <None Include="wwwroot\webadmin\js\metisMenu.min.js" />
+    <None Include="wwwroot\webadmin\js\modernizr.custom.js" />
+    <None Include="wwwroot\webadmin\js\monthly.js" />
+    <None Include="wwwroot\webadmin\js\owl.carousel.js" />
+    <None Include="wwwroot\webadmin\js\pie-chart.js" />
+    <None Include="wwwroot\webadmin\js\scripts.js" />
+    <None Include="wwwroot\webadmin\js\serial.js" />
+    <None Include="wwwroot\webadmin\js\SidebarNav.min.js" />
+    <None Include="wwwroot\webadmin\js\SimpleChart.js" />
+    <None Include="wwwroot\webadmin\js\utils.js" />
+    <None Include="wwwroot\webadmin\js\validator.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.20">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.20">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.15" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="7.9.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EduSchoolCore.BL\EduSchoolCore.BL.csproj" />
+    <ProjectReference Include="..\EduSchoolCore.DL\EduSchoolCore.DL.csproj" />
+    <ProjectReference Include="..\EduSchoolCore.EL\EduSchoolCore.EL.csproj" />
+  </ItemGroup>
+
+</Project>

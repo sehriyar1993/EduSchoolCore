@@ -1,0 +1,36 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model List<AppUser>
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int count = 0;
+}
+
+<div id="page-wrapper">
+	<div class="main-page">
+		<h2 class="title1">İstifadəçilər</h2>
+		<div class="blank-page widget-shadow scroll" >
+			<table class="table table-bordered">
+				<tr>
+					<td>#</td>
+					<td>İstifadəçi Adı</td>
+					<td>Rol Ver</td>
+				
+				</tr>
+				@foreach (var x in Model)
+				{
+					count++;
+					<tr>
+						<td>@count</td>
+						<td>@x.Name</td>
+						<td><a href="/AdminRole/AssingRole/@x.Id" class="btn btn-danger btn-flat btn-pri">Rol Ver</a></td>
+
+					</tr>
+				}
+			</table>
+		</div>
+	</div>
+</div>
+
+
+

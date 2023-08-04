@@ -1,0 +1,39 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model List<AppRole>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int count = 0;
+}
+
+<div id="page-wrapper">
+	<div class="main-page">
+		<h2 class="title1">Rollar</h2>
+		<div class="blank-page widget-shadow scroll" >
+			<table class="table table-bordered">
+				<tr>
+					<td>#</td>
+					<td>Adı</td>
+					<td>Sil</td>
+					<td>Yenilə</td>
+				</tr>
+				@foreach (var x in Model)
+				{
+					count++;
+					<tr>
+						<td>@count</td>
+						<td>@x.Name</td>
+						<td><a href="/AdminRole/Delete/@x.Id" class="btn btn-danger btn-flat btn-pri">Sil</a></td>
+						<td><a href="/AdminRole/UpdateRole/@x.Id" class="btn btn-success btn-flat btn-pri">Yenilə</a></td>
+
+					</tr>
+				}
+			</table>
+		</div>
+	</div>
+	<br />
+	<a href="/AdminRole/Create" class="btn btn-info btn-flat btn-pri">Yeni</a>
+	<a href="/AdminRole/Users" class="btn btn-danger btn-flat btn-pri">Rol Ver</a>
+
+</div>
+

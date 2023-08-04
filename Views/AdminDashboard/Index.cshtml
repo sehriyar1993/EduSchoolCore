@@ -1,0 +1,114 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model List<Course>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!-- requried-jsfiles-for owl -->
+<link href="~/webadmin/css/owl.carousel.css" rel="stylesheet">
+<script src="~/webadmin/js/owl.carousel.js"></script>
+<script>
+	$(document).ready(function () {
+		$("#owl-demo").owlCarousel({
+			items: 3,
+			lazyLoad: true,
+			autoPlay: true,
+			pagination: true,
+			nav: true,
+		});
+	});
+</script>
+<!-- //requried-jsfiles-for owl -->
+<div id="page-wrapper">
+	<div class="main-page">
+		<div class="col_3">
+			<div class="col-md-3 widget widget1">
+				<div class="r3_counter_box">
+					<i class="pull-left fa fa-dollar icon-rounded"></i>
+					<div class="stats">
+						<h5><strong>@ViewBag.currency</strong></h5>
+						<span>Dollar Məzənnə</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 widget widget1">
+				<div class="r3_counter_box">
+					<i class="pull-left fa fa-laptop user1 icon-rounded"></i>
+					<div class="stats">
+						<h5><strong>@ViewBag.brend</strong></h5>
+						<span>Brendlər</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 widget widget1">
+				<div class="r3_counter_box">
+					<i class="pull-left fa fa-money user2 icon-rounded"></i>
+					<div class="stats">
+						<h5><strong>@ViewBag.product</strong></h5>
+						<span>Məhsullar</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 widget widget1">
+				<div class="r3_counter_box">
+					<i class="pull-left fa fa-pie-chart dollar1 icon-rounded"></i>
+					<div class="stats">
+						<h5><strong>@ViewBag.cateqory</strong></h5>
+						<span>Kateqoriya Sayı</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 widget">
+				<div class="r3_counter_box">
+					<i class="pull-left fa fa-users dollar2 icon-rounded"></i>
+					<div class="stats">
+						<h5><strong>@ViewBag.user</strong></h5>
+						<span>Istifadəçilər</span>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<!-- for amcharts js -->
+		<script src="~/webadmin/js/amcharts.js"></script>
+		<script src="~/webadmin/js/serial.js"></script>
+		<script src="~/webadmin/js/export.min.js"></script>
+		<link rel="~/webadmin/stylesheet" href="css/export.css" type="text/css" media="all" />
+		<script src="~/webadmin/js/light.js"></script>
+		<!-- for amcharts js -->
+
+		<script src="~/webadmin/js/index1.js"></script>
+		<div class="row-one widgettable">
+		<div class="charts">
+			<div class="mid-content-top charts-grids">
+				<div class="middle-content">
+					<h4 class="title">Son Yüklənənlər</h4>
+					<!-- start content_slider -->
+					<div id="owl-demo" class="owl-carousel text-center">
+							@foreach(var x in Model.OrderByDescending(x => x.CourseId).Take(7))
+							{
+								<div class="item">
+									<img class="lazyOwl img-responsive" data-src="@x.Picture" alt="name">
+								</div>
+
+							}
+					
+					</div>
+				</div>
+				<!--//sreen-gallery-cursual---->
+			</div>
+		</div>
+
+		<div class="col_1">
+				@await Component.InvokeAsync("DashboardContactList")
+				@await Component.InvokeAsync("DashboardNewsletterList")
+		
+			<div class="clearfix"> </div>
+
+		</div>
+		
+	    </div>
+	</div>
+</div>
+
+

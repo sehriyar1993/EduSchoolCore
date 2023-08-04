@@ -1,0 +1,26 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model List<Comment >
+<div class="comments">
+    @foreach (var x in Model.Where(x => x.BlogId == ViewBag.BlogID))
+    {
+        <div class="comments-grids">
+            <div class="media-grid">
+                <div class="media">
+                    <a class="com" href="#"><img src="@x.AppUser.Image" class="img-fluid radius-image" width="100px" alt="placeholder image"></a>
+                    <div class="media-body comments-grid-right">
+                        <h5>@x.AppUser.Name @x.AppUser.Surname</h5>
+                        <ul class="p-0">
+                            <li class="">
+                                @(((DateTime)x.Date).ToString("dd-MMM-yyyy"))
+                            </li>
+                          
+                        </ul>
+                        <p>
+                            @x.Body
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

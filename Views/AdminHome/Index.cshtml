@@ -1,0 +1,64 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core.Common;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Course>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int count = 1;
+}
+
+<div id="page-wrapper">
+	<div class="main-page">
+		<h2 class="title1">Kurslarınız</h2>
+		<div class="blank-page widget-shadow scroll" id="style-2 div1">
+			<table class="table table-bordered">
+				<tr>
+					<td>#</td>
+					<td>Şəkli</td>
+					<td>Adı</td>
+					<td>Qiyməti</td>
+					<td>Dərs Sayı</td>
+					<td>Haqqında</td>
+					<td>Kateqoriyası</td>
+					<td>Sil</td>
+					<td>Yenilə</td>
+					
+				</tr>
+				@foreach(var x in Model)
+				{
+					count++;
+					<tr>
+						<td>@count</td>
+						<td><img src="@x.Picture" style="width:64px;height:64px" /></td>
+						<td>@x.Title</td>
+						<td>@x.Price</td>
+						<td>@x.Lesson </td>
+						<td>@x.Description</td>
+						<td>@x.Category.CategoryName</td>
+						<td><a href="/AdminHome/Delete/@x.CourseId/" class="btn btn-danger btn-flat btn-pri">Sil</a></td>
+						<td><a href="/AdminHome/Update/@x.CourseId/" class="btn btn-success btn-flat btn-pri">Yenilə</a></td>
+						
+					</tr>
+				}
+			</table>
+		</div>
+	</div>
+	<a href="/AdminHome/AddCourse/" class="btn btn-info btn-flat btn-pri">Yeni</a>
+	@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
+	new PagedListRenderOptions
+	{
+	LinkToFirstPageFormat="<<İlk",
+	LinkToLastPageFormat="Son>>",
+	LinkToNextPageFormat="sonraki>",
+	LinkToPreviousPageFormat="<əvvəli",
+	ContainerDivClasses=new[] {"navigation"},
+	LiElementClasses= new[] {"page-item"},
+	PageClasses=new[] {"page-link"},
+	ActiveLiElementClass="active"
+	})
+
+</div>
+
+

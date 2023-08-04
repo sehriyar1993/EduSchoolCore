@@ -1,0 +1,104 @@
+﻿@using EduSchoolCore.EL.AllClass;
+@model Contact
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-4 pb-sm-4">
+            <h4 class="inner-text-title pt-5">Əlaqə</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="/Home/Index/">Ana Səhifə</a></li>
+                <li class="active"><i class="fas fa-angle-right"></i>Bizimlə Əlaqə</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //inner banner -->
+<!-- contact block -->
+<section class="w3l-contact py-5" id="contact">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <p class="text-uppercase"></p>
+            <h3 class="title-style">Bizimlə Əlaqə</h3>
+        </div>
+        <div class="row contact-block">
+            <div class="col-md-7 contact-right">
+                <form  method="post" class="signin-form">
+                    <div class="input-grids">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="text" asp-for="Name" id="w3lName" placeholder="Adınız"
+                                       class="contact-input" required="" />
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="email" asp-for="Email" id="w3lSender" placeholder="Mail Adresiniz"
+                                       class="contact-input" required="" />
+                            </div>
+                        </div>
+                        <input type="text" asp-for="Subject" id="w3lSubect" placeholder="Başlıq"
+                               class="contact-input" required="" />
+                     
+                    </div>
+                    <div class="form-input">
+                        <textarea asp-for="Body" id="w3lMessage" placeholder="Mesajınız"
+                                  required=""></textarea>
+                    </div>
+                    <div class="text-start">
+                        <button class="btn btn-style btn-style-3">Mesaj Gönder</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5 ps-lg-5 mt-md-0 mt-5">
+                <div class="contact-left">
+                    <div class="cont-details">
+                        <div class="d-flex contact-grid">
+                            <div class="cont-left text-center me-3">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="cont-right">
+                                <h6>Adres</h6>
+                                <p>Yasamal Xarici Dairəvi Yolu Tərəqqi Küçəsi 39</p>
+                            </div>
+                        </div>
+                        <div class="d-flex contact-grid mt-4 pt-lg-2">
+                            <div class="cont-left text-center me-3">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="cont-right">
+                                <h6>Əlaqə</h6>
+                                <p><a href="tel:+994708048004">+994(70) 804 8004</a></p>
+                            </div>
+                        </div>
+                        <div class="d-flex contact-grid mt-4 pt-lg-2">
+                            <div class="cont-left text-center me-3">
+                                <i class="fas fa-envelope-open-text"></i>
+                            </div>
+                            <div class="cont-right">
+                                <h6>Email Adresimiz</h6>
+                                <p><a href="mailto:sehrihaciyev@gmail.com" class="mail">sehrihaciyev@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="d-flex contact-grid mt-4 pt-lg-2">
+                            <div class="cont-left text-center me-3">
+                                <i class="fas fa-headphones-alt"></i>
+                            </div>
+                            <div class="cont-right">
+                                <h6>Müştəri Xidmətləri</h6>
+                                <p><a href="mailto:sehrihaciyev@support.com" class="mail">ficihaciyev@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- map -->
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.5971986406284!2d49.81447597594345!3d40.37345497144656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307dc1caf3ffff%3A0x9209dad5cf4714fe!2zSMO8c2V5biBDYXZpZCBCYcSfxLE!5e0!3m2!1saz!2saz!4v1688921831808!5m2!1saz!2saz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</div>
+
